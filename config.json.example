@@ -1,0 +1,20 @@
+{
+  "debug": true,
+  "server": {
+    "address": ":9090"
+  },
+  "context":{
+    "timeout":2
+  },
+  "database": {
+    "mysql": {
+      "hostname": "localhost",
+      "port": "3306",
+      "username": "root",
+      "password": "root",
+      "database": "article",
+      "driver": "mysql"
+    }
+  }
+
+}
