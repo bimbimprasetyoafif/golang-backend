@@ -2,25 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93699fab-1b13-400b-9fef-7afbc35de4a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/grpc/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book/controller/book-grpc.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book/database/database-mongo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book/repository/book-repo-mongo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book/service/service-book-mongo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pb/book.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pb/book.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book/controller/book-handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/controller/book-rest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book/database/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/database/database-mysql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book/repository/book-repo-mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/repository/book-repo-mysql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book/repository/book-repo-mysql_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/repository/book-repo-mysql_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book/service/service-book.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/service/service-book-mysql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json.example" beforeDir="false" afterPath="$PROJECT_DIR$/config.json.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/rest/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/book.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/book.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/grpc/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/grpc/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/controller/book-grpc.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/controller/book-grpc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/repository/book-repo-mongo.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/repository/book-repo-mongo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/service/service-book-mongo.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/service/service-book-mongo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/service/service-book-mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/service/service-book-mysql.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +108,10 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: grpc" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: grpc" />
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <environment>
@@ -131,6 +122,10 @@
     <proxy>direct</proxy>
   </component>
   <component name="WindowStateProjectService">
+    <state x="1740" y="97" width="1162" height="885" key="CommitChangelistDialog2" timestamp="1605515748182">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1740" y="97" width="1162" height="885" key="CommitChangelistDialog2/0.27.1366.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1605515748182" />
     <state x="2104" y="283" width="424" height="513" key="FileChooserDialogImpl" timestamp="1605511686382">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>

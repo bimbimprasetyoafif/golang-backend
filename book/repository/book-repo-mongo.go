@@ -28,6 +28,7 @@ func (db *MongoRepositoryBook) CreateBook(ctx context.Context, m models.BookMong
 
 	err := db.Conn.DB(DB_NAME).C(DB_COLLECTION).Insert(&m)
 	if err != nil {
+		fmt.Println(err.Error())
 		return err
 	}
 
@@ -42,6 +43,7 @@ func (db *MongoRepositoryBook) DeleteBook(ctx context.Context, id string) error 
 	oid := bson.ObjectIdHex(id)
 	err := db.Conn.DB(DB_NAME).C(DB_COLLECTION).RemoveId(oid)
 	if err != nil {
+		fmt.Println(err.Error())
 		return err
 	}
 
@@ -56,6 +58,7 @@ func (db *MongoRepositoryBook) UpdateBook(ctx context.Context, id string, m mode
 	oid := bson.ObjectIdHex(id)
 	err := db.Conn.DB(DB_NAME).C(DB_COLLECTION).UpdateId(oid, &m)
 	if err != nil {
+		fmt.Println(err.Error())
 		return err
 	}
 
@@ -70,6 +73,7 @@ func (db *MongoRepositoryBook) GetById(ctx context.Context, id string, res model
 	oid := bson.ObjectIdHex(id)
 	err := db.Conn.DB(DB_NAME).C(DB_COLLECTION).FindId(oid).One(&res)
 	if err != nil {
+		fmt.Println(err.Error())
 		return err
 	}
 	return nil

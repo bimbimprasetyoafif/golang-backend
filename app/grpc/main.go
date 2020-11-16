@@ -47,6 +47,7 @@ func main() {
 	run := fmt.Sprintf("GRPC Running On %s", port)
 	fmt.Println(run)
 	if err := s.Serve(lis); err != nil {
-		fmt.Println("cannot run")
+		fmt.Println(err.Error())
+		fmt.Println("cannot run :(")
 	}
 }
