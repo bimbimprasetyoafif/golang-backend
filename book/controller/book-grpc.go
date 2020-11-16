@@ -46,6 +46,7 @@ func (g *grpcServer) GetAllBook(ctx context.Context, message *pb.Message) (*pb.B
 func (g *grpcServer) GetByIdBook(ctx context.Context, id *pb.BookId) (*pb.Book, error) {
 	var res models.BookMongo
 	if err := g.ServiceMongo.GetById(ctx, id.ID, res); err != nil {
+		fmt.Println(err.Error())
 		return nil, err
 	}
 
@@ -60,6 +61,7 @@ func (g *grpcServer) GetByIdBook(ctx context.Context, id *pb.BookId) (*pb.Book, 
 
 func (g *grpcServer) DelByIdBook(ctx context.Context, id *pb.BookId) (*pb.Message, error) {
 	if err := g.ServiceMongo.DeleteBook(ctx, id.ID); err != nil {
+		fmt.Println(err.Error())
 		return nil, err
 	}
 	return &pb.Message{
@@ -75,6 +77,7 @@ func (g *grpcServer) CreateNewBook(ctx context.Context, book *pb.BookPayload) (*
 		Title:   book.Title,
 		Content: book.Content,
 	}); err != nil {
+		fmt.Println(err.Error())
 		return nil, err
 	}
 
@@ -91,6 +94,7 @@ func (g *grpcServer) UpdateByIdBook(ctx context.Context, updatePayload *pb.Updat
 		Title:   updatePayload.Book.Title,
 		Content: updatePayload.Book.Content,
 	}); err != nil {
+		fmt.Println(err.Error())
 		return nil, err
 	}
 	return &pb.Message{
