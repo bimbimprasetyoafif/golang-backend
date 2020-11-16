@@ -1,7 +1,8 @@
 {
   "debug": true,
   "server": {
-    "host": ":9090"
+    "rest": ":9090",
+    "rpc": ":50051"
   },
   "context":{
     "timeout":2
@@ -14,6 +15,10 @@
       "password": "root",
       "database": "article",
       "driver": "mysql"
+    },
+    "mongo": {
+      "hostname": "localhost",
+      "driver": "mongodb"
     }
   }
 

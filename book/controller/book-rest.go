@@ -13,7 +13,7 @@ import (
 
 var aBook models.Book
 
-type BookHandler struct{
+type BookHandler struct {
 	BService book.Service
 }
 
@@ -21,7 +21,7 @@ type ResponseError struct {
 	Message string `json:"message"`
 }
 
-func NewBookHandler(e *echo.Echo, bs book.Service){
+func NewBookHandler(e *echo.Echo, bs book.Service) {
 	handler := &BookHandler{
 		BService: bs,
 	}
@@ -35,8 +35,8 @@ func NewBookHandler(e *echo.Echo, bs book.Service){
 func (b *BookHandler) CreateBook(ec echo.Context) error {
 
 	err := ec.Bind(&aBook)
-	if err != nil{
-		return ec.JSON(http.StatusBadRequest,ResponseError{Message:"bad request"})
+	if err != nil {
+		return ec.JSON(http.StatusBadRequest, ResponseError{Message: "bad request"})
 	}
 
 	ctx := ec.Request().Context()
@@ -44,21 +44,21 @@ func (b *BookHandler) CreateBook(ec echo.Context) error {
 		ctx = context.Background()
 	}
 
-	err = b.BService.CreateBook(ctx, &aBook)
+	err = b.BService.CreateBook(ctx, aBook)
 	if err != nil {
-		return ec.JSON(http.StatusInternalServerError, ResponseError{Message:"internal server error"})
+		return ec.JSON(http.StatusInternalServerError, ResponseError{Message: "internal server error"})
 	}
 
 	return ec.JSON(http.StatusCreated, aBook)
 }
 
 func (b *BookHandler) UpdateBook(ec echo.Context) error {
-	IdParam, err := strconv.Atoi(ec.Param("id"))
+	IdParam, _ := strconv.Atoi(ec.Param("id"))
 	id := int64(IdParam)
 
-	err = ec.Bind(&aBook)
-	if err != nil{
-		return ec.JSON(http.StatusBadRequest,ResponseError{Message:"bad request"})
+	err := ec.Bind(&aBook)
+	if err != nil {
+		return ec.JSON(http.StatusBadRequest, ResponseError{Message: "bad request"})
 	}
 
 	ctx := ec.Request().Context()
@@ -66,19 +66,19 @@ func (b *BookHandler) UpdateBook(ec echo.Context) error {
 		ctx = context.Background()
 	}
 
-	err = b.BService.UpdateBook(ctx,id,&aBook)
+	err = b.BService.UpdateBook(ctx, id, aBook)
 	if err != nil {
-		return ec.JSON(http.StatusInternalServerError, ResponseError{Message:"internal server error"})
+		return ec.JSON(http.StatusInternalServerError, ResponseError{Message: "internal server error"})
 	}
 
 	return ec.JSON(http.StatusCreated, aBook)
 
 }
 
-func (b *BookHandler) DeleteBook(ec echo.Context) error{
+func (b *BookHandler) DeleteBook(ec echo.Context) error {
 	IdParam, err := strconv.Atoi(ec.Param("id"))
 	if err != nil {
-		return ec.JSON(http.StatusBadRequest, ResponseError{Message:"bad parameter"})
+		return ec.JSON(http.StatusBadRequest, ResponseError{Message: "bad parameter"})
 	}
 
 	ctx := ec.Request().Context()
@@ -87,19 +87,19 @@ func (b *BookHandler) DeleteBook(ec echo.Context) error{
 	}
 
 	id := int64(IdParam)
-	err = b.BService.DeleteBook(ctx,id)
+	err = b.BService.DeleteBook(ctx, id)
 	if err != nil {
-		return ec.JSON(http.StatusNotFound, ResponseError{Message:"data not found"})
+		return ec.JSON(http.StatusNotFound, ResponseError{Message: "data not found"})
 	}
 
 	return ec.NoContent(http.StatusNoContent)
 }
 
-func (b *BookHandler) GetById(ec echo.Context) error{
+func (b *BookHandler) GetById(ec echo.Context) error {
 
 	IdParam, err := strconv.Atoi(ec.Param("id"))
 	if err != nil {
-		return ec.JSON(http.StatusBadRequest, ResponseError{Message:"bad parameter"})
+		return ec.JSON(http.StatusBadRequest, ResponseError{Message: "bad parameter"})
 	}
 
 	ctx := ec.Request().Context()
@@ -108,11 +108,11 @@ func (b *BookHandler) GetById(ec echo.Context) error{
 	}
 
 	id := int64(IdParam)
-	err = b.BService.GetById(ctx, id, &aBook)
+	err = b.BService.GetById(ctx, id, aBook)
 	if err != nil {
-		return ec.JSON(http.StatusNotFound, ResponseError{Message:"not found"})
+		return ec.JSON(http.StatusNotFound, ResponseError{Message: "not found"})
 	}
-	return  ec.JSON(http.StatusOK, aBook)
+	return ec.JSON(http.StatusOK, aBook)
 }
 
 func (b *BookHandler) GetAll(ec echo.Context) error {
@@ -123,7 +123,7 @@ func (b *BookHandler) GetAll(ec echo.Context) error {
 
 	books, err := b.BService.GetAll(ctx)
 	if err != nil {
-		return ec.JSON(http.StatusInternalServerError, ResponseError{Message:"server error"})
+		return ec.JSON(http.StatusInternalServerError, ResponseError{Message: "server error"})
 	}
 	return ec.JSON(http.StatusOK, books)
 }

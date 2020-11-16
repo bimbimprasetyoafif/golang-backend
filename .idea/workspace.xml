@@ -2,7 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93699fab-1b13-400b-9fef-7afbc35de4a3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/grpc/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book/controller/book-grpc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book/database/database-mongo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book/repository/book-repo-mongo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book/service/service-book-mongo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pb/book.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pb/book.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/controller/book-handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/controller/book-rest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/database/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/database/database-mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/repository/book-repo-mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/repository/book-repo-mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/repository/book-repo-mysql_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/repository/book-repo-mysql_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/service/service-book.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/service/service-book-mysql.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json.example" beforeDir="false" afterPath="$PROJECT_DIR$/config.json.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/rest/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/book.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/book.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,13 +71,51 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/book/controller" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/book/controller" />
+      <recent name="$PROJECT_DIR$/pb" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/rest" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Test.go test example.com/book/repository">
+    <configuration name="TestUpdateBook in example.com/book/repository" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="clean-arc" />
+      <working_directory value="$PROJECT_DIR$/book/repository" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="example.com/book/repository" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestUpdateBook\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test example.com/book/repository" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="clean-arc" />
+      <working_directory value="$PROJECT_DIR$/book/repository" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="example.com/book/repository" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.go test example.com/book/repository" />
+        <item itemvalue="Go Test.TestUpdateBook in example.com/book/repository" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,25 +131,25 @@
     <proxy>direct</proxy>
   </component>
   <component name="WindowStateProjectService">
-    <state x="278" y="59" width="800" height="684" key="#GOROOT" timestamp="1582800602657">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state x="2104" y="283" width="424" height="513" key="FileChooserDialogImpl" timestamp="1605511686382">
+      <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state x="278" y="59" width="800" height="684" key="#GOROOT/0.27.1366.741@0.27.1366.741" timestamp="1582800602657" />
-    <state x="278" y="59" width="800" height="684" key="#SQL_Dialects" timestamp="1582858712855">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state x="2104" y="283" width="424" height="513" key="FileChooserDialogImpl/0.27.1366.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1605511686382" />
+    <state width="1874" height="286" key="GridCell.Tab.0.bottom" timestamp="1605513873749">
+      <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state x="278" y="59" width="800" height="684" key="#SQL_Dialects/0.27.1366.741@0.27.1366.741" timestamp="1582858712855" />
-    <state x="278" y="59" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582907055769">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1874" height="286" key="GridCell.Tab.0.bottom/0.27.1366.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1605513873749" />
+    <state width="1874" height="286" key="GridCell.Tab.0.center" timestamp="1605513873749">
+      <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state x="278" y="59" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741@0.27.1366.741" timestamp="1582907055769" />
-    <state x="465" y="80" width="426" height="642" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583112678728">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1874" height="286" key="GridCell.Tab.0.center/0.27.1366.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1605513873749" />
+    <state width="1874" height="286" key="GridCell.Tab.0.left" timestamp="1605513873748">
+      <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state x="465" y="80" width="426" height="642" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1366.741@0.27.1366.741" timestamp="1583112678728" />
-    <state x="428" y="27" width="500" height="741" key="refactoring.ChangeSignatureDialog" timestamp="1583064101306">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1874" height="286" key="GridCell.Tab.0.left/0.27.1366.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1605513873748" />
+    <state width="1874" height="286" key="GridCell.Tab.0.right" timestamp="1605513873749">
+      <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state x="428" y="27" width="500" height="741" key="refactoring.ChangeSignatureDialog/0.27.1366.741@0.27.1366.741" timestamp="1583064101306" />
+    <state width="1874" height="286" key="GridCell.Tab.0.right/0.27.1366.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1605513873749" />
   </component>
 </project>

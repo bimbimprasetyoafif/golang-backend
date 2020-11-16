@@ -17,19 +17,19 @@ import (
 	MyBookService "example.com/book/service"
 )
 
-func init(){
+func init() {
 
 	viper.SetConfigFile("config.json")
 	err := viper.ReadInConfig()
 	if err != nil {
-		log.Println("Cannot read :"+err.Error())
+		log.Println("Cannot read :" + err.Error())
 	}
 
 }
 
-func main()  {
-
-	db := database.InitDb()
+func main() {
+	port := viper.GetString("server.rest")
+	db := database.InitDbMysql()
 
 	timeoutContext := time.Duration(viper.GetInt("context.timeout")) * time.Second
 	e := echo.New()
@@ -38,8 +38,8 @@ func main()  {
 	br := MyBookRepo.NewMysqlRepositoryBook(db)
 	bs := MyBookService.NewBookService(br, timeoutContext)
 
-	MyBookHandler.NewBookHandler(e,bs)
+	MyBookHandler.NewBookHandler(e, bs)
 
-	log.Fatal(e.Start(viper.GetString("server.host")))
-	
+	log.Fatal(e.Start(port))
+
 }

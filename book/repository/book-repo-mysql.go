@@ -11,7 +11,7 @@ import (
 
 var tempBook models.Book
 
-type MysqlRepositoryBook struct{
+type MysqlRepositoryBook struct {
 	Conn *sql.DB
 }
 
@@ -19,8 +19,8 @@ func NewMysqlRepositoryBook(Conn *sql.DB) book.Repository {
 	return &MysqlRepositoryBook{Conn}
 }
 
-func (db *MysqlRepositoryBook) CreateBook(ctx context.Context, m *models.Book) error {
-	
+func (db *MysqlRepositoryBook) CreateBook(ctx context.Context, m models.Book) error {
+
 	query := "INSERT book SET pages = ?, year = ?, title = ?, content = ?"
 
 	stmt, err := db.Conn.PrepareContext(ctx, query)
@@ -42,7 +42,7 @@ func (db *MysqlRepositoryBook) CreateBook(ctx context.Context, m *models.Book) e
 	}
 
 	m.ID = id
-	
+
 	return nil
 }
 
@@ -54,7 +54,7 @@ func (db *MysqlRepositoryBook) DeleteBook(ctx context.Context, id int64) error {
 		return err
 	}
 
-	err = db.GetById(ctx,id,&tempBook)
+	err = db.GetById(ctx, id, tempBook)
 	if err != nil {
 		return err
 	}
@@ -68,15 +68,15 @@ func (db *MysqlRepositoryBook) DeleteBook(ctx context.Context, id int64) error {
 	return nil
 }
 
-func (db *MysqlRepositoryBook) UpdateBook(ctx context.Context, id int64, m *models.Book) error {
+func (db *MysqlRepositoryBook) UpdateBook(ctx context.Context, id int64, m models.Book) error {
 	query := "UPDATE book SET pages = ? , year = ? , title = ? , content = ? WHERE id = ?"
-	stmt, err  := db.Conn.PrepareContext(ctx, query)
+	stmt, err := db.Conn.PrepareContext(ctx, query)
 	if err != nil {
 		log.Println(err.Error())
 		return err
 	}
 
-	err = db.GetById(ctx,id,&tempBook)
+	err = db.GetById(ctx, id, tempBook)
 	if err != nil {
 		return err
 	}
@@ -90,9 +90,9 @@ func (db *MysqlRepositoryBook) UpdateBook(ctx context.Context, id int64, m *mode
 	return nil
 }
 
-func (db *MysqlRepositoryBook) GetById(ctx context.Context, id int64, res *models.Book) error{
+func (db *MysqlRepositoryBook) GetById(ctx context.Context, id int64, res models.Book) error {
 	query := "SELECT id, pages, year, title, content FROM book WHERE id = ?"
-	row:= db.Conn.QueryRowContext(ctx, query, id).Scan(&res.ID, &res.Pages, &res.Year, &res.Title, &res.Content )
+	row := db.Conn.QueryRowContext(ctx, query, id).Scan(&res.ID, &res.Pages, &res.Year, &res.Title, &res.Content)
 
 	if row == sql.ErrNoRows {
 		log.Println(row.Error())
@@ -102,7 +102,7 @@ func (db *MysqlRepositoryBook) GetById(ctx context.Context, id int64, res *model
 	return nil
 }
 
-func (db *MysqlRepositoryBook) GetAll(ctx context.Context) ([]*models.Book, error) {
+func (db *MysqlRepositoryBook) GetAll(ctx context.Context) ([]models.Book, error) {
 	query := "SELECT id, pages, year, title, content FROM book"
 	rows, err := db.Conn.QueryContext(ctx, query)
 	if err != nil {
@@ -111,13 +111,13 @@ func (db *MysqlRepositoryBook) GetAll(ctx context.Context) ([]*models.Book, erro
 	}
 	defer rows.Close()
 
-	res := make([]*models.Book, 0)
-	for rows.Next(){
-		each := new(models.Book)
+	res := make([]models.Book, 0)
+	var each models.Book
+	for rows.Next() {
 		err := rows.Scan(&each.ID, &each.Pages, &each.Year, &each.Title, &each.Content)
 		if err != nil {
 			log.Println(err.Error())
-			return nil,err
+			return nil, err
 		}
 		res = append(res, each)
 	}

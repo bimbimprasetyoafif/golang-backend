@@ -1,15 +1,14 @@
 package database
 
 import (
-
 	"database/sql"
 	"fmt"
-	"github.com/spf13/viper"
 	"log"
 
+	"github.com/spf13/viper"
 )
 
-func InitDb () (db *sql.DB){
+func InitDbMysql() (db *sql.DB) {
 	connect := fmt.Sprintf(
 		"%s:%s@tcp(%s:%s)/%s",
 		viper.GetString("database.mysql.username"),
@@ -18,9 +17,9 @@ func InitDb () (db *sql.DB){
 		viper.GetString("database.mysql.port"),
 		viper.GetString("database.mysql.database"),
 	)
-	db, err := sql.Open(viper.GetString("database.mysql.driver"),connect)
+	db, err := sql.Open(viper.GetString("database.mysql.driver"), connect)
 	if err != nil {
-		log.Println("Cannot connect database :"+err.Error())
+		log.Println("Cannot connect database :" + err.Error())
 	}
 	return db
 }
